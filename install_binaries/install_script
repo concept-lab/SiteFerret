@@ -1,0 +1,45 @@
+#!/bin/bash  
+#Setting python virtual environmen:
+#if needed uncomment
+#python3 -m venv pEnvironment-env
+#source pEnvironment-env/bin/activate
+
+echo "FIX NanoShaper executable and shared library for C functions"
+echo "Insert 0 for a complete fix (Nanoshaper and shared library)"
+echo "Insert 1 for NanoShaper only, 2 for shared library only (recompiles libCfunc.so)"
+read choice
+if [[ choice -eq 0 ]] || [[ choice -eq 1 ]]
+then
+	echo "Linking NanoShaper executable"
+	read -p "Continue? (enter)"
+	# Getting patchelf
+	#cd patchelf
+	#./bootstrap.sh
+	#./configure --prefix="$HOME/.local"
+	#make install
+	#strip --strip-unneeded ~/.local/bin/patchelf
+	#gzip -9 ~/.local/share/man/man1/patchelf.1
+	#cd -
+	## setting NS libraries
+	lib_absPATH=$(readlink -f NS_lib)
+	patchelf --set-rpath $lib_absPATH/ NanoShaper
+	patchelf --set-interpreter $lib_absPATH/ld-linux-x86-64.so.2 NanoShaper
+	patchelf --add-needed librt.so.1 NanoShaper
+	patchelf --add-needed libpthread.so.0 NanoShaper
+	echo "Fixng ownership"
+        chmod +x NanoShaper
+        chmod +x NS_lib/*
+        sleep 1
+	echo "copying NanoShaper executable to source folder"
+	cp NanoShaper ../siteFerret/refExecutable/
+elif [[ choice -eq 0 ]] || [[ choice -eq 2 ]]
+then
+	echo "Creating shared C library"
+	gcc -fPIC -c Cfunc.c -lm || gcc -fPIC -c Cfunc.c -lm -std=c99
+	gcc -shared Cfunc.o -o libCfunc.so
+	echo "copying libCfunc.so to source folder"
+	cp libCfunc.so ../siteFerret/
+else
+	echo "Invalid option"
+fi
+

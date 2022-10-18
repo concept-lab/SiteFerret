@@ -1,0 +1,15 @@
+################### INPUT FILE FOR NS POCKET CLUSTERING #############
+#IMPORTANT NOTES:
+#	- delta_gamma, delta_beta, delta_rp have default values provided of 0.1. But these can be overwritten
+#	- rpMIN is bounded to be at most the hardcoded radius for conventional pocket exit.
+
+gammaMIN = 0.0
+gammaMAX = 0.1
+betaMAX = 0.6
+betaMIN = 0.6
+rpMIN = 3.0
+rpMAX = 3.0
+#delta_gamma = 0.1
+delta_beta = 0.1
+delta_rp = 0.1
+
