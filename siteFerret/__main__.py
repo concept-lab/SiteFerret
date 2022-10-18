@@ -1,12 +1,10 @@
-############ Clustering of SES probes for pocket detection and  reconstruction ############
+#########################           SITEFERRET  ###########################################
+############ Clustering of SES virtual probes for pocket generation and ranking via Isolation Forest  ############
 #Author:								Luca Gagliardi 
-#Copiright:					    © 2020 -2021  Istituto Italiano di Tecnologia   
+#Copiright:					    © 2022 Istituto Italiano di Tecnologia   
+# Original Raw project: PICKPOCKET: https://github.com/lucagl/pickPocket 
 ############################################################### 
-#PORTABLE VERSION 1.0
-#PORTABLE VERSION 1.1:
-#   - User options
-#   - Limit with a threshold on score or a maximum number the number of pockets displayed
-#   - Use a volume classifier instead of IF which shoud be faster (TODO)
+
 from siteFerret import *
 from siteFerret import global_module
 import sys
