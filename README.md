@@ -80,12 +80,8 @@ An example of advanced scripting is provided by scripts/loop.py together with a 
 
 In input.prm:
 
-**Action = analysis**:
-Stores hitting statistics and features (in a binary file) over several structure-ligands pairs of all generalted pockets according to the provided clustering parameters (can loop over the parameters as well).
+TODO
 
-**Action = test**:
-Evaluate ranking power looping over structures and ligands
-
-Config.txt is only used to overwrite default alpha, beta and maximum probe radius clustering parameters. Will be dropped in future implementations.
+Config.txt is 
 
 
