@@ -1168,11 +1168,11 @@ def save_avHit(alphas,betas,radii,OS,VS,nhit,n_pockets,n_pockets_norm,n_subs,n_s
     fp.write("\n# %d / %d Structures processed (%.1f %%)" %(advancement[1],advancement[2],advancement[0]))
     fp.write("\n# Number of ligand-structure couples treated = %d"%nAnalysed)
     
-    fp.write("\n#alpha\tbeta\trp_max\tLigand Coverage[%]\t Pocket Coverage[%]  HIT[%]  Npockets  Npockets_norm[%]  NsubP  NsubP_norm[%]  Av_vol  Av_volNorm[%]  Avsphs  Av_sphs_norm[%]  sphs  sphs_norm[%]")
+    fp.write("\n#alpha\tbeta\trp_max\tLigand Coverage[%] Pocket Coverage[%]\tHIT[%]  Npockets  Npockets_norm[%]  NsubP  NsubP_norm[%]  Av_vol  Av_volNorm[%]  Avsphs  Av_sphs_norm[%]  sphs  sphs_norm[%]")
     for i,a in enumerate(alphas):
         for j,b in enumerate(betas):
             for k,r in enumerate(radii):
-                fp.write("\n %.2f\t%.2f\t%.2f\t%.2f\t\t%.2f\t\t%.2f\t\t%.2f\t%.2f\t%.2f\t%.2f\t\t%.2f\t%.2f\t\t%.2f \t%.2f  %.2f  %.2f"
+                fp.write("\n %.2f\t%.2f\t%.2f\t\t%.2f\t\t%.2f\t\t%.2f\t%.2f\t\t%.2f\t   %.2f\t%.2f\t%.2f\t\t%.2f\t%.2f\t%.2f\t\t%.2f  %.2f"
                 %(a,b,r,np.round(OS[i,j,k],4)*100,np.round(VS[i,j,k],4)*100,np.round(nhit[i,j,k],4)*100,
                 np.round(n_pockets[i,j,k],2),np.round(n_pockets_norm[i,j,k],4)*100,
                 np.round(n_subs[i,j,k],2),np.round(n_subs_norm[i,j,k],4)*100,np.round(volume[i,j,k],2),np.round(volume_norm[i,j,k],4)*100,
