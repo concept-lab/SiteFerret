@@ -3,7 +3,7 @@ __email__="luca.gagliardi@iit.it"
 
 
 from siteFerret.global_module import *
-from siteFerret.standaloneWrapper import NS_clustering
+from siteFerret.core import NS_clustering
 from siteFerret.functions import readLigands,saveResSimple
 
 
