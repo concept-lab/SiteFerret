@@ -52,8 +52,11 @@ CAREFUL: In a virtual environment you might force pip to install the package in 
 Then the library should be available for import (see advanced use) or use it as an executable (recomended)
 ## Instructions:
 
-### Simple
+### Standard use
 **python3 -m siteFerret \<file.pqr\>**
+
+### Change default clustering parameters
+With the *config.txt* --> see example in the confFiles folder
 
 **OUTPUTS**:
 
@@ -70,12 +73,12 @@ Note: the numbering reflects the ranking.
  - infoPocket\<pocket_number>\.txt --> info on residues and (pseudo) mouths with relative normals. Note: you might want to post-process it with functions.getEntrance()
  - \<structure_name\>.vert and .face for nice triangulation in VMD of the structure. This is a "classical" NanoShaper output.
 
-### Advanced
+### Train and test your own Isolation Forest on a custom dataset
 
 TODO.. 
 
 
-Extra set up files: *config.txt* and *input.prm* files: Samples are given in the script folder.
+Need set up files: *input.prm* files (an example is given in the confFiles folder.)
 An example of advanced scripting is provided by scripts/loop.py together with a sample *structure* folder containing structure-ligand pairs and a ligandMap.txt file. 
 
 In input.prm:
