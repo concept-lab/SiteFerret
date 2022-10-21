@@ -14,7 +14,7 @@ DEFAULT: gamma =0, beta=0.9, rp_max=3 (Angstroms)
 
 **rp_max**: Large probe radius. The minimum is 1.4 (water molecule) and the series of clustered sphere is [1.4,..,rp_max] by increments of 0.1.
 ### Ranking:
-Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a scikit-learn object previously trained and loaded from a  provided binary file (in pickPocket/trainedModels)
+Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a scikit-learn object previously trained and loaded from a  provided binary file (in siteFerret/trainedModels)
 
 ## Requirements:
  - install patchelf:
@@ -34,7 +34,7 @@ Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a 
  2. run: git lfs pull 
 
 **Without using git lfs**:
-download from: https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/luca_gagliardi_iit_it/ErrEE6yVBGpIt_f1z43nKxkB9HZap-EtaeIFUrGzXfHRew?e=SJwohi
+download from: https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/luca_gagliardi_iit_it/ErrEE6yVBGpIt_f1z43nKxkBon5Rsd_OzadlasiGV-Xh3A?e=CecSIu
 
 Contact me if the link expired (the above prevous should always work, instead)
 
@@ -77,26 +77,26 @@ Note: the numbering reflects the ranking.
  - \<structure_name\>.vert and .face for nice triangulation in VMD of the structure. This is a "classical" NanoShaper output.
 
 ### Train and test your own Isolation Forests on a custom dataset
- The following scripts are contained in the scripts/ folder.
+ The following scripts are contained in the *scripts/* folder.
  
-*Procedure*: 
+ <ins>**NOTE**</ins>: To create a database with structures in PQR, extracted ligands, and correct corresponding mapping file for SiteFerret, use the script provided in https://github.com/concept-lab/MOAD_ligandFinder .
+This script is based on the online [bindingMOAD](http://bindingmoad.org/) database to establish which ligand(s) on a structure is(are) valid.
  
- 1. Generate the training data using the getData.py. This scripts produces a *features_data.pkl* binary file containing all matching pockets and sub-pockets of the algorithm run over several clustering parameters and a given list of structure-ligands pairs. This script need an *input.prm* file detailing the clustering parameters to be explored (an example is given in the confFiles folder). Furthermore, a structure folder containing all necessary files must be set-up. The folder contains PQRs of analysed structures, ligands in xyz format, and a txt file containing the map between structures and corresponding ligands.
+**Procedure**: 
  
+ 1. Generate the training data using the **getData.py**This scripts produces a *features_data.pkl* binary file containing all matching pockets and sub-pockets of the algorithm run over several clustering parameters and a given list of structure-ligands pairs. In addition, the script also produces a number of information whose main one is the *statANALYSIS.txt* file containing statistical information over the generated hitting pockets (as well as the total number of putative pockets ans sub-pockets produced). The script needs an **input.prm** file detailing the clustering parameters to be explored (an example is given in the confFiles folder). Furthermore, a structure folder containing all necessary files must be set-up. The folder contains PQRs of analysed structures, ligands in xyz format, and a txt file containing the map between structures and corresponding ligands (see above regarding the database creation and its correct formatting). An example of structure folder and the type of info it should contain is given in the *script/example* folder.
  
-<ins>Remember to copy the trained forests in siteFerret/trainedModels/</ins>. The default name of the 4 isolation forests (see **isoForest.ipynb** Jupyter notebook) are IF_geometryL, IF_geometryS, IF_chemistryL, IF_chemistryS
+2. Train your custom Isolation Forests using the notebook in *IF_builder*. The notebook should contain enough details. Prior to running the notebook make sure the *features_data.pkl* file is displaced in the working directory.
+
+3. Test the goodness of your model on the same or a different dataset containing the same info described in 1. and the above NOTE. This is done by running the **test.py** script. Again the **input.prm** file must be given (but you are free to test whatever clustering parameter even if different from the ones used to generate the training set). Prior to running, check the code parameters defined at the beginning of the test.py source code (MAIN: evaluation metrics--see paper, and name and location of the trained models) which will load the 4 forests that must be present in the working directory or in the specified PATH (to be changed within the source code) and produces statistics on the goodness of the ranking. The main output file produced is statTEST_\<model_name\>.txt 
  
-TODO.. 
+If a new trained Isolation Forest want to be used by default by SiteFerret,
+<ins>copy the forests in siteFerret/trainedModels/</ins>. The default name of the 4 isolation forests (see **isoForest.ipynb** Jupyter notebook) are IF_geometryL, IF_geometryS, IF_chemistryL, IF_chemistryS
+ 
+### Run SiteFerret over many structures at once
+The script **loop.py** in the *scripts/* folder can be launched to produce an *output* folder containing for each structure the top10 ranked putative pockets in their *atm* format (*p\<pocket_number\>_atm.pqr*). The script by default runs on all PQR structure files present in a folder names *structures*. If the user wants to use a different folder, this can be specified at calling: **loop.py \<folder_path\>**.
 
-
-Need set up files: *input.prm* files 
-An example of advanced scripting is provided by scripts/loop.py together with a sample *structure* folder containing structure-ligand pairs and a ligandMap.txt file. 
-
-In input.prm:
-
-TODO
-
-Config.txt is 
+This scripts, as for standard single structure call to SiteFerret, can overwrite default clustering parameters via the **config.txt** file.
  
  ## Cite
  
