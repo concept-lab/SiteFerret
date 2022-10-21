@@ -1,0 +1,49 @@
+# ************** PDB ligand Map *************** 
+#	Created using '*BuildMap module*
+# Ligand validation based on binding MOAD database.
+# Author L. Gagliardi, Istituto Italiano di Tecnologia
+# LOCAL TIME = 2021-06-16 17:25:57
+# --------------
+1	5k13
+6Q7_A501
+1	1mpj
+IPH_A200
+1	1hew
+NAG_NAG_NAG_B1
+2	3ldp
+3P1_A408
+3P1_B502
+1	2f4j
+VX6_A514
+1	2bsm
+BSM_A1224
+1	7taa
+ABC_A479
+1	1c1e
+ENH_H703
+1	2p3b
+3TL_A101
+2	6gj6
+EZZ_A204
+GCP_A203
+5	1rv1
+IMZ_A110
+IMZ_A111
+IMZ_B110
+IMZ_B111
+IMZ_C110
+6	1cqf
+BGC_GAL_GLA_F1
+BGC_GAL_GLA_G1
+BGC_GAL_GLA_I1
+BGC_GAL_GLA_J1
+BGC_GAL_GLA_H1
+BGC_GAL_GLA_K1
+1	1z1h
+HBB_A201
+1	1dmp
+DMQ_B450
+1	1o9u
+ADZ_A1386
+1	2uy0
+HV1_B1200
