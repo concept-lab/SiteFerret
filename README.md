@@ -35,9 +35,12 @@ Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a 
 
 **Without using git lfs**:
 download from: https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/luca_gagliardi_iit_it/ErrEE6yVBGpIt_f1z43nKxkB9HZap-EtaeIFUrGzXfHRew?e=SJwohi
-and copy content in pickPocket/trainedModels/
 
-contact me if the link expired (the above prevous should always work, instead)
+Contact me if the link expired (the above prevous should always work, instead)
+
+Finally <ins>copy the content in siteFerret/trainedModels/</ins>
+
+
  ### Python modules:
 - numpy
 - scikit-learn
@@ -73,12 +76,20 @@ Note: the numbering reflects the ranking.
  - infoPocket\<pocket_number>\.txt --> info on residues and (pseudo) mouths with relative normals. Note: you might want to post-process it with functions.getEntrance()
  - \<structure_name\>.vert and .face for nice triangulation in VMD of the structure. This is a "classical" NanoShaper output.
 
-### Train and test your own Isolation Forest on a custom dataset
-
+### Train and test your own Isolation Forests on a custom dataset
+ The following scripts are contained in the scripts/ folder.
+ 
+*Procedure*: 
+ 
+ 1. Generate the training data using the getData.py. This scripts produces a *features_data.pkl* binary file containing all matching pockets and sub-pockets of the algorithm run over several clustering parameters and a given list of structure-ligands pairs. This script need an *input.prm* file detailing the clustering parameters to be explored (an example is given in the confFiles folder). Furthermore, a structure folder containing all necessary files must be set-up. The folder contains PQRs of analysed structures, ligands in xyz format, and a txt file containing the map between structures and corresponding ligands.
+ 
+ 
+<ins>Remember to copy the trained forests in siteFerret/trainedModels/</ins>. The default name of the 4 isolation forests (see **isoForest.ipynb** Jupyter notebook) are IF_geometryL, IF_geometryS, IF_chemistryL, IF_chemistryS
+ 
 TODO.. 
 
 
-Need set up files: *input.prm* files (an example is given in the confFiles folder.)
+Need set up files: *input.prm* files 
 An example of advanced scripting is provided by scripts/loop.py together with a sample *structure* folder containing structure-ligand pairs and a ligandMap.txt file. 
 
 In input.prm:
