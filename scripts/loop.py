@@ -17,6 +17,8 @@ from siteFerret import *
 from siteFerret import global_module
 
 ################## INITIALIZATIONS ###############################
+model="IF" 
+
 
 errFile = open("errorLog.txt",'w+')
 errFile.write("## ERROR LOG FILE ##\n")
@@ -103,7 +105,7 @@ logFile.write("\n++++TEST MODE: assessing performance of predictor on structures
 
 scoreIF = Scoring()
 
-model="IF10" 
+
 
 err = scoreIF.load(model,modelType=1,unique=False) #change here and below to test different classifiers..
 err.handle(errFile)

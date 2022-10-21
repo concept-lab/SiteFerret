@@ -23,20 +23,16 @@ from siteFerret.train_classifier import Scoring,getFeatNoDensity
 from siteFerret.functions import save_rankingStats
 
 
-np.seterr( invalid='ignore') #avoids warning when no match causes 0/0 division when gathering stats
-amino = {'ALA','ARG','ASN','ASP','CYS','GLN','GLU','GLY','HIS','HID','HIE','HIP','ILE','LEU','LYS','MET','PHE','PRO','SER','THR','TRP','TYR','VAL'}
 
-
-
-#### NOTE: Predisposed to use in alternative unique forest trained on geometrical and chemical features together 
-# (distintion still kept on "large" (main ranker) and "small" (only for sub-pockets within a pocket) Isolation Forests)
+# ********************** CHANGE HERE IF NEEDED*************************88
 
 modelName = "IF" # <-- will look for <modelName>_geometryL.pkl and <modelName>_chemistryL.pkl, and <modelName>_geometryS.pkl and <modelName>_chemistryS.pkl 
                    # If the option unique is given (see scoreIF.load() ), only <modelName>_L.pkl and <modelName>_S.pkl will be used (no average between geometry and chemistry)
+PATH = "./" #Insert None if using default path of the SiteFerret module (default trained model in siteFerret/trainedModels/)
 
+# NOTE: Predisposed to use in alternative "unique" forest trained on geometrical and chemical features together 
+# (distintion still kept on "large" (main ranker) and "small" (only for sub-pockets within a pocket) Isolation Forests)
 
-
-saveP = False  # save res and number of hitting pocket.. CAREFUL use for single clustering parameter!
 
 excludePeptide = False
 onlyPeptides = False
@@ -44,6 +40,17 @@ onlyPeptides = False
 ##################### EVALUATION METRIC'S THRESHOLDS ###
 VS_threshold = 0.2
 OV_threshold = 0.5
+
+
+#**********************
+#*************
+
+
+np.seterr( invalid='ignore') #avoids warning when no match causes 0/0 division when gathering stats
+amino = {'ALA','ARG','ASN','ASP','CYS','GLN','GLU','GLY','HIS','HID','HIE','HIP','ILE','LEU','LYS','MET','PHE','PRO','SER','THR','TRP','TYR','VAL'}
+
+
+
 
 print("THRESHOLDS:\nOV=%.1f\tVS=%.1f"%(OV_threshold,VS_threshold))
 
@@ -143,7 +150,7 @@ scoreIF = Scoring()
 # names = ["IF_geomChem","IF_onlyGeom","IF_onlyChem","VolumeScore"]
 names = ["IF_geomChem"]
 
-err = scoreIF.load(modelName,modelType=1,unique=False) #change here and below to test different classifiers..
+err = scoreIF.load(modelName,modelType=1,path=PATH,unique=False) #change here and below to test different classifiers..
 err.handle(errFile)
 
 #############################
@@ -243,7 +250,7 @@ for s in range(n_structures):
             err.handle(errFile)
             print("SKIPPING: Ligand  "+ligand_name[0]+ " could not be loaded")
             continue
-    if ((not ligands_coord)and (saveP==False)):
+    if ((not ligands_coord)):
         err.value = 1 
         err.info = "Skipping the structure " + proteinFile+". No valid ligands found."
         err.handle(errFile)
