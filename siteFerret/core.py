@@ -602,7 +602,7 @@ class NS_clustering(object):
         return resInfo
 
 
-    def printInfo(self,keep,rankingThreshold, name = "IF10", saveSpheres=False,getRes=True,volumeRank=False,uniqueForest=False):
+    def printInfo(self,keep,rankingThreshold, name = "IF", saveSpheres=False,getRes=True,volumeRank=False,uniqueForest=False):
         from collections import defaultdict
         from siteFerret.train_classifier import rerankVol_withSub
 

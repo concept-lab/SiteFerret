@@ -31,7 +31,7 @@ amino = {'ALA','ARG','ASN','ASP','CYS','GLN','GLU','GLY','HIS','HID','HIE','HIP'
 #### NOTE: Predisposed to use in alternative unique forest trained on geometrical and chemical features together 
 # (distintion still kept on "large" (main ranker) and "small" (only for sub-pockets within a pocket) Isolation Forests)
 
-modelName = "IF10" # <-- will look for <modelName>_geometryL.pkl and <modelName>_chemistryL.pkl, and <modelName>_geometryS.pkl and <modelName>_chemistryS.pkl 
+modelName = "IF" # <-- will look for <modelName>_geometryL.pkl and <modelName>_chemistryL.pkl, and <modelName>_geometryS.pkl and <modelName>_chemistryS.pkl 
                    # If the option unique is given (see scoreIF.load() ), only <modelName>_L.pkl and <modelName>_S.pkl will be used (no average between geometry and chemistry)
 
 
