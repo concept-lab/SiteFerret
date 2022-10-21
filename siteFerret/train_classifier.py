@@ -229,7 +229,7 @@ def resCounter(res):
 def densityHydro(res):
     D = 5  
     N = len(res)
-    
+
     coord = np.array([r[3] for r in res])
 
     d,_f=Pdist_C(coord[:,0:3],coord[:,0:3])
@@ -561,10 +561,15 @@ class Scoring(object):
         self._pScoreS = None
 
 
-    def load(self,filename_model,modelType,unique=False):
+    def load(self,filename_model,modelType,path=None,unique=False):
+        import os
         err = Error()
         import pickle
-        filename_model = global_module.trainingData+filename_model
+        if path is None:
+            path = global_module.trainingData
+            filename_model = path+filename_model
+        else:
+            filename_model = path+filename_model
         print("Loading ML trained model")
         print(filename_model)
         print("Checking for large pocket and small pocket interpreters")
@@ -578,7 +583,8 @@ class Scoring(object):
                 inFile.close()
             except:
                 err.value=2
-                err.info = "Cannot load trained model(s) in "+global_module.trainingData
+                err.info = "Cannot load trained model(s) in "+os.path.abspath(path)
+                print("Cannot load trained model(s) in "+os.path.abspath(path))
                 return err
             if(modelType==ML["IsolationForest"]):
                 # Isolation Forest
@@ -612,7 +618,8 @@ class Scoring(object):
                 inFile.close()
             except:
                 err.value=2
-                err.info = "Cannot load trained model(s)"
+                err.info = "Cannot load trained model(s) in "+os.path.abspath(path)
+                print("Cannot load trained model(s) in "+os.path.abspath(path))
                 return err
                 ### PRINT INFO ###
 
