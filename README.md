@@ -97,7 +97,7 @@ If a new trained Isolation Forest want to be used by default by SiteFerret,
 <ins>copy the forests in siteFerret/trainedModels/</ins>. The default name of the 4 isolation forests (see **isoForest.ipynb** Jupyter notebook) are IF_geometryL, IF_geometryS, IF_chemistryL, IF_chemistryS
  
 ### Run SiteFerret over many structures at once
-The script **loop.py** in the *scripts/* folder can be launched to produce an *output* folder containing for each structure the top10 ranked putative pockets in their *atm* format (*p\<pocket_number\>_atm.pqr*). The script by default runs on all PQR structure files present in a folder names *structures*. If the user wants to use a different folder, this can be specified at calling: **loop.py \<folder_path\>**.
+The script **loop.py** in the *scripts/* folder can be launched to produce an *output* folder containing for each structure the top10 ranked putative pockets in their *atm* format (*p\<pocket_number\>_atm.pqr*). The script by default runs on all PQR structure files present in a folder named *structures*. If the user wants to use a different folder, this can be specified at calling: **loop.py \<folder_path\>**.
 
 This scripts, as for standard single structure call to SiteFerret, can overwrite default clustering parameters via the **config.txt** file.
  
