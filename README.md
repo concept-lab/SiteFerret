@@ -75,7 +75,7 @@ Note: the numbering reflects the ranking.
  - p\<pocket_number\>.off --> the triangulation of the above. Compatible with VMD.
  - p\<pocket_number\>_atm.pqr --> the protein surface atoms belonging to the pocket envelope (Recomended for practical use). Compatible with VMD.
  - Similarly for sub<number> when subpockets are available.
- - infoPocket\<pocket_number>\.txt --> info on residues and (pseudo) mouths with relative normals. Note: you might want to post-process it with functions.getEntrance()
+ - infoPocket\<pocket_number>\.txt --> info on residues and (pseudo) mouths with relative normals.
  - \<structure_name\>.vert and .face for nice triangulation in VMD of the structure. This is a "classical" NanoShaper output.
 
 ### Train and test your own Isolation Forests on a custom dataset
