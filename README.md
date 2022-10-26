@@ -19,18 +19,18 @@ DEFAULT: gamma =0, beta=0.9, rp_max=3 (Angstroms)
 Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a scikit-learn object previously trained and loaded from a  provided binary file (in siteFerret/trainedModels)
 
 ## Requirements:
+**NOTE**: The program has been tested only on a linux machine (Ubuntu 20.04)
  - install patchelf:
   - sudo apt get install patchelf (ubuntu)
   - or see https://gist.github.com/ruario/80fefd174b3395d34c14 
- - The NanoShaper executable is provided bust must be linked to the libraries. To do so run the install_script within *install binaries* folder and follow the prompted instructions (type *./install_script*).
+ - The NanoShaper executable is provided but must be linked to the libraries. To do so run the install_script within *install binaries* folder and follow the prompted instructions (type *./install_script*).
  - (Reccomended) Recompile locally the shared library. This is done by running the install_script and following the instructions (gcc required).
  
  To run the install script just move into *install binaries* folder and: *./install_script* (it might be necessary to change permissions: *chmod +x install_script*)
  
  ### Download trained model:
  **Using git lfs** (recomended)
- 
- 
+
  0. git clone the folder
  1. install git lfs
  2. run: git lfs pull 
@@ -38,20 +38,20 @@ Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a 
 **Without using git lfs**:
 download from: https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/luca_gagliardi_iit_it/ErrEE6yVBGpIt_f1z43nKxkBon5Rsd_OzadlasiGV-Xh3A?e=CecSIu
 
-Contact me if the link expired (the above prevous should always work, instead)
+Contact me if the link expired (git lfs instead should always work)
 
 Finally <ins>copy the content in siteFerret/trainedModels/</ins>
-
 
  ### Python modules:
 - numpy
 - scikit-learn
+
 ## Installation
 First check **Requirements**
 
 run within the folder *pip3 install .*
 
-CAREFUL: In a virtual environment you might force pip to install the package in the same directory (default behavior is to copy to another location) to not miss correct pointing to libraries. If the option -e is given (develop mode) it should prevent this problem to happen.
+**CAREFUL**: In a virtual environment you might force pip to install the package in the same directory (default behavior is to copy to another location) to not miss correct pointing to libraries. If the option -e is given (develop mode) it should prevent this problem to happen.
 
 
 Then the library should be available for import (see advanced use) or use it as an executable (recomended)
