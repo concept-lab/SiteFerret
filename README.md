@@ -20,6 +20,7 @@ Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a 
 
 ## Requirements:
 **NOTE**: The program has been tested only on a linux machine (Ubuntu 20.04)
+- python3 installed
  - install patchelf:
   - sudo apt get install patchelf (ubuntu)
   - or see https://gist.github.com/ruario/80fefd174b3395d34c14 
