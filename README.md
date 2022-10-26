@@ -21,7 +21,7 @@ Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a 
 ## Requirements:
 **NOTE**: The program has been tested only on a linux machine (Ubuntu 20.04)
 - python3 installed
-- gcc installed
+- gcc installed (to recompile locally the C library *libCfunc.so*)
  - install patchelf:
   - sudo apt install patchelf (ubuntu)
   - or see https://gist.github.com/ruario/80fefd174b3395d34c14 
