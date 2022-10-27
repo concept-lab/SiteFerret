@@ -733,7 +733,7 @@ class NS_clustering(object):
                         if(np.round(scoreSub[rank],2)<0.5): 
                             # so is independent on eventual correction on ranking 
                             #Very much prone to accept subpockets, esecially for EIF where scores are generally lower
-                            print("Single subpocket elected as better representative of master pocket..")
+                            print("\nSingle subpocket elected as better representative of master pocket..")
                             print("SubRank (not accounting for rearrangements):",rank+1)
                             absRank = np.where(rankedIndexes == ind)[0][0]
                             print("SubScore = ",scoreSub[rank])
@@ -777,7 +777,7 @@ class NS_clustering(object):
                                 except KeyError:
                                     scoreMaster = np.append(scoreMaster,1)
                                     absRank = rankedIndexes.size
-                                print("Sub ", i, "SubRanking (not accounting for rearrangements ) = ", rank[sub_i] +1 )
+                                print("Sub ", i+1, "SubRanking (not accounting for rearrangements ) = ", rank[sub_i] +1 )
                                 print("Abs ranking = ", absRank +1, "score=", scoreMaster[absRank] )
                                 print((pi,sub_i),"ind="+str(map_reverse[(pi,sub_i)]),'subScore',scoreSub[rank[sub_i]])
                                 resultFile.write("  Subpocket %d. subScore = %.2f\n"%(i,scoreSub[rank[sub_i]]))
