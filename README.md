@@ -103,6 +103,9 @@ The script **loop.py** in the *scripts/* folder can be launched to produce an *o
 
 This scripts, as for standard single structure call to SiteFerret, can overwrite default clustering parameters via the **config.txt** file.
  
+ ### Other tools
+ In the *script/otherTools/* folder the user can find the scripts used to generate results for comparison with Fpocket and NS-volume discussed in our paper (see below). The NS-volume tool is avaible as a standalone here: https://github.com/concept-lab/NS_pocket
+ 
  ## Cite
  
  TODO
