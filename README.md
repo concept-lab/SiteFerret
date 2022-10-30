@@ -31,6 +31,7 @@ Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a 
  To run the install script just move into *install binaries* folder and: *./install_script* (it might be necessary to change permissions: *chmod +x install_script*)
  
  ### Download trained model:
+ If trained models are not downnloaded when cloning the git folder (check into */siteFerret/trainedModels*): 
  **Using git lfs** (recomended)
 
  0. git clone the folder
@@ -38,7 +39,7 @@ Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a 
  2. run: git lfs pull 
 
 **Without using git lfs**:
-download from: https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/luca_gagliardi_iit_it/ErrEE6yVBGpIt_f1z43nKxkBon5Rsd_OzadlasiGV-Xh3A?e=CecSIu
+Contact me opening an issue in git
 
 Contact me if the link expired (git lfs instead should always work)
 
