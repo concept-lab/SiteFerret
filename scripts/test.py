@@ -10,8 +10,6 @@
 #       Runs SiteFerret over all structures provided in the structures folder on all clustering parameters provided by input file
 # Ouput: 1. Statistics of performance of the ranking with all parameters explored in terms of top1, top3, top10, etc...
 
-#TODO --> fai caso più semplice: singolo modello di ranking, output ridotto in termini di statistiche
-
 import sys
 import os
 import subprocess
@@ -69,7 +67,7 @@ errFile.write("## ERROR LOG FILE ##\n")
 runPath = 'temp'
 if not os.path.exists(runPath):
     os.makedirs(runPath)
-    subprocess.call('cp '+global_module.pathTo_NS_ex+'* '+runPath+"/", shell=True) 
+subprocess.call('cp '+global_module.pathTo_NS_ex+'* '+runPath+"/", shell=True) 
 err = initFolders()
 err.handle(errFile)
 
@@ -525,7 +523,7 @@ for s in range(n_structures):
     avHitTop1 = np.nan_to_num(hitTop1/norm)           
     avHitTop3 = np.nan_to_num(hitTop3/norm)
     avHitTop10 = np.nan_to_num(hitTop10/norm)
-    normForsub = hitTop10-singleHit #count when subs are succesfull among all hits which are not "single" hits
+    normForsub = hitTop10-singleHit #count when subs are succesfull among all hits which are not "single" hits that is with 0 sub-pockets
     #norm - singleHit #corrNorm: when master with no sub or sigle subpocket hit
 
     avHitTopwithSub = np.nan_to_num(hitTopWithSub/normForsub)
