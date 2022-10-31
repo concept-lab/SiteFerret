@@ -39,9 +39,7 @@ Ranking is based on Isolation Forest (IF) anomaly detector. IF is provided as a 
  2. run: git lfs pull 
 
 **Without using git lfs**:
-Contact me opening an issue in git
-
-Contact me if the link expired (git lfs instead should always work)
+Contact me by opening an issue in git
 
 Finally <ins>copy the content in siteFerret/trainedModels/</ins>
 
