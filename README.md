@@ -106,6 +106,9 @@ This scripts, as for standard single structure call to SiteFerret, can overwrite
  
  ## Cite
  
- TODO
+SiteFerret: beyond simple pocket identification in proteins
+L Gagliardi, W Rocchia - [arXiv preprint arXiv:2212.11888](https://doi.org/10.48550/arXiv.2212.11888), 2022 - arxiv.org
+
+
 
 
